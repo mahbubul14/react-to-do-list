@@ -3,4 +3,9 @@ import ReactDom from 'react-dom';
 //component file
 import TodoContainer from './components/TodoContainer'
 
-ReactDom.render(<TodoContainer/>, document.getElementById('root'))
+ReactDom.render(
+    <React.StrictMode>
+        <TodoContainer />
+    </React.StrictMode>,
+    document.getElementById('root')
+)
