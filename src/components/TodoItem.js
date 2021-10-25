@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
+import styles from './TodoItem.module.css';
 
 class TodoItem extends Component {
   handleEditing = () => {
@@ -10,7 +11,7 @@ class TodoItem extends Component {
 
   render() {
     return (
-      <li>
+      <li className={styles.item}>
         <div onDoubleClick={this.handleEditing}>
           <input
             type="checkbox"
@@ -20,6 +21,7 @@ class TodoItem extends Component {
           {this.props.todo.title}
           <button onClick={() => this.props.deleteTodoProps(this.props.todo.id)}>Delete</button>
         </div>
+        <input type="text" className={styles.textInput} />
       </li>
     );
   }
