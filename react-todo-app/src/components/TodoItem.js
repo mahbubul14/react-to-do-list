@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class TodoItem extends Component {
 
   handleEditing = () => {
@@ -8,7 +9,7 @@ class TodoItem extends Component {
 
   render() {
     return (
-      <li className={styles.item}>
+      <li>
         <div onDoubleClick={this.handleEditing}>
           <input type="checkbox"
           checked= {this.props.todo.completed}
@@ -17,7 +18,6 @@ class TodoItem extends Component {
           {this.props.todo.title}
           <button onClick ={() => this.props.deleteTodoProps(this.props.todo.id)}>Delete</button>
         </div>
-        <input type ="text" className ={styles.textInput}/>
       </li>
   )}
 }
