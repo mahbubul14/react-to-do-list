@@ -65,7 +65,7 @@ class TodoContainer extends Component {
       <div className="container">
       <div className="inner">
         <Header />
-        <InputTodo addTodoProps={this.addTodoItem} />
+        <InputTodo addTodoProps={this.addToItem}/>
         <TodosList
           todos={this.state.todos}
           handleChangeProps={this.handleChange}
