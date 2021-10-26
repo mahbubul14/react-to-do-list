@@ -5,14 +5,29 @@ import React, { Component } from 'react';
 import styles from './TodoItem.module.css';
 
 class TodoItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { editing: false };
+  }
+
   handleEditing = () => {
-    console.log('edit mode activated');
+    this.setState({
+      editing: true,
+    });
   }
 
   render() {
+    const viewMode = {};
+    const editMode = {};
+
+    if (this.state.editing) {
+      viewMode.display = 'none';
+    } else {
+      editMode.display = 'none';
+    }
     return (
       <li className={styles.item}>
-        <div onDoubleClick={this.handleEditing}>
+        <div onDoubleClick={this.handleEditing} style={viewMode}>
           <input
             type="checkbox"
             checked={this.props.todo.completed}
@@ -21,7 +36,7 @@ class TodoItem extends Component {
           {this.props.todo.title}
           <button onClick={() => this.props.deleteTodoProps(this.props.todo.id)}>Delete</button>
         </div>
-        <input type="text" className={styles.textInput} />
+        <input type="text" style={editMode} className={styles.textInput} />
       </li>
     );
   }
