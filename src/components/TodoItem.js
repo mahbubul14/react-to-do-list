@@ -36,7 +36,15 @@ class TodoItem extends Component {
           {this.props.todo.title}
           <button onClick={() => this.props.deleteTodoProps(this.props.todo.id)}>Delete</button>
         </div>
-        <input type="text" style={editMode} className={styles.textInput} />
+        <input
+          type="text"
+          style={editMode}
+          className={styles.textInput}
+          // value={title}
+          // onChange={(e) => {
+          //   console.log(e.target.value, id);
+          // }}
+        />
       </li>
     );
   }
